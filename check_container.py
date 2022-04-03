@@ -1,7 +1,7 @@
+import argparse
 from datetime import datetime
 import time
 
-import argparse
 from discord import Webhook, RequestsWebhookAdapter
 import docker
 
@@ -19,7 +19,6 @@ def docker_verificar_estado(nombre_contenedor):
         return contenedor.attrs["State"]["Status"] == ESTADO_ESPERADO
 
     return False
-
 
 def enviar_notificacion(mensaje, webhook):
     webhook = Webhook.from_url(webhook, adapter=RequestsWebhookAdapter())
